@@ -16,7 +16,7 @@ jobs:
       with:
         host: arch-fan.com
         username: ubuntu
-        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        key: ${{ secrets.PUB_KEY }}
         script: |
           cd /projects
           git clone https://github.com/${{ secrets.GITHUB_REPOSITORY }}.git
