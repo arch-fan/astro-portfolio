@@ -11,18 +11,36 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Deploying on external server
+
+    - name: Set up project
+      uses: actions/checkout@main
+
+    - name: Set up bun
+      uses: oven-sh/setup-bun@main
+      with:
+        bun-version: latest
+
+    - name: Build project
+      run: |
+        bun install
+        bun run build
+
+    - name: Clean folder
       uses: appleboy/ssh-action@master
       with:
         host: arch-fan.com
         username: ubuntu
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
-          exec bash \-l
-          cd /projects
-          git clone https://github.com/${{ github.repository }}.git
-          cd astro-portfolio
-          pnpm install
-          pnpm run build:deploy
-          cd ..
-          rm -rf astro-portfolio
+          rm -rf /www/portfolio/*
+          mv dist/* /www/portfolio/
+
+    
+    - name: Copy build to server
+      uses: appleboy/scp-action@master
+      with:
+        host: arch-fan.com
+        username: ubuntu
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        source: "dist/"
+        target: /www/portfolio/
