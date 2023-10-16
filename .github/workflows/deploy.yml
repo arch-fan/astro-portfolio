@@ -16,9 +16,9 @@ jobs:
       uses: actions/checkout@main
 
     - name: Set up bun
-      uses: oven-sh/setup-bun@main
+      uses: pnpm/action-setup@master
       with:
-        bun-version: latest
+        version: latest
 
     - name: Build project
       run: |
