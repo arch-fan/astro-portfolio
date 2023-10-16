@@ -22,8 +22,8 @@ jobs:
 
     - name: Build project
       run: |
-        bun install
-        bun run build
+        pnpm install
+        pnpm run build
 
     - name: Clean folder
       uses: appleboy/ssh-action@master
