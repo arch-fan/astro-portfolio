@@ -19,7 +19,7 @@ jobs:
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
           cd /projects
-          git clone https://github.com/${{ secrets.GITHUB_REPOSITORY }}.git
+          git clone https://github.com/${{ github.repository }}.git
           cd astro-portfolio
           pnpm run build:deploy
           rm -rf *
