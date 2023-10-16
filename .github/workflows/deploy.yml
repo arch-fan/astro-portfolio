@@ -1,0 +1,25 @@
+name: Deploy to Server
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Deploying on external server
+      uses: appleboy/ssh-action@master
+      with:
+        host: arch-fan.com
+        username: ubuntu
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        script: |
+          cd /projects
+          git clone https://github.com/${{ secrets.GITHUB_REPOSITORY }}.git
+          cd astro-portfolio
+          pnpm run build:deploy
+          rm -rf *
