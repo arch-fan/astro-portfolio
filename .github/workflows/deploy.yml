@@ -21,7 +21,7 @@ jobs:
           cd /projects
           git clone https://github.com/${{ github.repository }}.git
           cd astro-portfolio
-          bun install
-          bun run build:deploy
+          pnpm install
+          pnpm run build:deploy
           cd ..
           rm -rf astro-portfolio
