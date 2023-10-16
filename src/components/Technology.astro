@@ -5,21 +5,23 @@ interface Props extends Technology {}
 const { tech, icon, percentage } = Astro.props;
 ---
 
-<li class="flex items-center">
-    <Icon name={icon} class="h-6 w-6" />
-    <span class="ml-2 italic pr-4 w-36 pl-2">{tech}</span>
-    <span class="dark:bg-gray-600 bg-gray-300 w-full h-1 rounded-full relative shadow">
-        <span
-            class="absolute left-0 transition bg-black dark:bg-white progress-bar rounded-full h-1"
-            style={`width: ${percentage}%`}></span>
-    </span>
-</li>
+<Icon name={icon} class="h-6 w-6" />
+<span class="italic">{tech}</span>
+<span
+    class="dark:bg-gray-600 place-self-center bg-gray-300 w-full h-1 rounded-full relative shadow"
+>
+    <span
+        class="absolute left-0 transition bg-black dark:bg-white progress-bar rounded-full h-1"
+        style={`width: ${percentage}%`}></span>
+</span>
 
 <script>
     const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach((entry) => {
             if (entry.isIntersecting) {
-                entry.target.classList.add("animate-[progressBar_1s_ease-in-out]");
+                entry.target.classList.add(
+                    "animate-[progressBar_1s_ease-in-out]",
+                );
                 observer.unobserve(entry.target);
             }
         });
@@ -37,7 +39,8 @@ const { tech, icon, percentage } = Astro.props;
     @keyframes progressBar {
         0% {
             width: 0;
-        },
+        }
+        ,
         100% {
             width: fit-content;
         }

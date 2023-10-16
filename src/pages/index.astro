@@ -103,13 +103,13 @@ import icon from "@/media/images/icon.png";
         </div>
     </HomeEntry>
     <HomeEntry title="Tecnologías">
-        <ul class="flex flex-col mt-4 gap-4">
+        <div class="flex-col mt-4 gap-4 grid grid-cols-[24px_max-content_1fr]">
             {
                 technologies
                     .sort((a, b) => b.percentage - a.percentage)
                     .map((tech) => <Technology {...tech} />)
             }
-        </ul>
+        </div>
     </HomeEntry>
     <HomeEntry title="Experiencia">
         <Timeline>
