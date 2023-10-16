@@ -23,4 +23,5 @@ jobs:
           cd astro-portfolio
           bun install
           bun run build:deploy
-          rm -rf *
+          cd ..
+          rm -rf astro-portfolio
