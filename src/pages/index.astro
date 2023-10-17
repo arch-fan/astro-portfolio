@@ -13,6 +13,7 @@ import { experience } from "@/data/experience";
 import { Icon } from "astro-icon";
 import CV from "@/media/pdf/CV.pdf";
 import icon from "@/media/images/icon.png";
+import Contact from "@/components/Contact.astro";
 ---
 
 <ContentLayout title="Inicio" description="Bienvenido a..." lang="es">
@@ -124,5 +125,8 @@ import icon from "@/media/images/icon.png";
                 Descargar CV
             </a>
         </div>
+    </HomeEntry>
+    <HomeEntry title="Contáctame" centerTitle={true}>
+        <Contact className="mt-4 flex flex-col w-96" />
     </HomeEntry>
 </ContentLayout>
