@@ -36,25 +36,19 @@ const { className } = Astro.props;
         value="Enviar"
         class="w-fit place-self-center py-3 px-6 rounded border border-alt-text cursor-pointer hover:bg-opacity-10 dark:bg-white hover:bg-black hover dark:bg-opacity-10 dark:hover:bg-opacity-5"
     />
-    <span id="form-response"></span>
+    <p id="form-response" class="font-bold"></p>
 </form>
 
 <script>
+    interface FormResponse {
+        message: string;
+        color: string;
+    }
+
     const $form = document.querySelector("#contact-form") as HTMLFormElement;
     const $responseField = document.querySelector(
         "#form-response",
     ) as HTMLSpanElement;
-
-    const postData = async (url: string, data: any) => {
-        const response = await fetch(url, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(data),
-        });
-        return response.text();
-    };
 
     $form?.addEventListener("submit", async (e) => {
         e.preventDefault();
@@ -68,12 +62,23 @@ const { className } = Astro.props;
         });
 
         $responseField.textContent = "Enviando...";
-        try {
-            const responseText = await postData("/api/contact", sendData);
-            $responseField.textContent = responseText;
-        } catch (error) {
+
+        const response = await fetch("/api/contact", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+        });
+
+        if (response.status === 200 || response.status === 400) {
+            const responseData: FormResponse = await response.json();
+            $responseField.textContent = responseData.message;
+            $responseField.style.color = responseData.color;
+        } else {
             $responseField.textContent =
-                "Ha habido un error enviando los datos del formulario. Inténtelo más tarde";
+                "⚠️ Ha habido un error enviando los datos del formulario. Inténtalo más tarde.";
+            $responseField.style.color = "#fb0";
         }
     });
 </script>
