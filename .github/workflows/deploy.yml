@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - master
+    paths: 
+      - src/
+      - public/
 
 jobs:
   build:
@@ -12,10 +15,10 @@ jobs:
 
     steps:
 
-    - name: Set up project
+    - name: Clone repository
       uses: actions/checkout@main
 
-    - name: Set up bun
+    - name: Set up pnpm
       uses: pnpm/action-setup@master
       with:
         version: latest
@@ -25,7 +28,7 @@ jobs:
         pnpm install
         pnpm run build
 
-    - name: Clean folder
+    - name: Clean folder at server
       uses: appleboy/ssh-action@master
       with:
         host: arch-fan.com
@@ -34,7 +37,7 @@ jobs:
         script: |
           rm -rf /www/portfolio/*
 
-    - name: Copy build to server
+    - name: Move build to server
       uses: appleboy/scp-action@master
       with:
         host: arch-fan.com
