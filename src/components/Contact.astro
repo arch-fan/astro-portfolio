@@ -45,7 +45,9 @@ const { className } = Astro.props;
         color: string;
     }
 
-    const $form = document.querySelector("form#contact-form") as HTMLFormElement;
+    const $form = document.querySelector(
+        "form#contact-form",
+    ) as HTMLFormElement;
     const $responseField = document.querySelector(
         "p#form-response",
     ) as HTMLSpanElement;
@@ -56,20 +58,27 @@ const { className } = Astro.props;
         const data = new FormData(e.target as HTMLFormElement);
 
         $responseField.textContent = "Enviando...";
+        $responseField.style.color = "#fff";
 
-        const response = await fetch("/api/contact", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(Object.fromEntries(data))
-        });
+        try {
+            const response = await fetch("https://arch-fan.com/api/contact", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(Object.fromEntries(data)),
+            });
 
-        if (response.status === 200 || response.status === 400) {
-            const responseData: FormResponse = await response.json();
-            $responseField.textContent = responseData.message;
-            $responseField.style.color = responseData.color;
-        } else {
+            if (response.status === 200 || response.status === 400) {
+                const responseData: FormResponse = await response.json();
+                $responseField.textContent = responseData.message;
+                $responseField.style.color = responseData.color;
+            } else {
+                $responseField.textContent =
+                    "⚠️ Ha habido un error enviando los datos del formulario. Inténtalo más tarde.";
+                $responseField.style.color = "#fb0";
+            }
+        } catch (e) {
             $responseField.textContent =
                 "⚠️ Ha habido un error enviando los datos del formulario. Inténtalo más tarde.";
             $responseField.style.color = "#fb0";
