@@ -45,21 +45,15 @@ const { className } = Astro.props;
         color: string;
     }
 
-    const $form = document.querySelector("#contact-form") as HTMLFormElement;
+    const $form = document.querySelector("form#contact-form") as HTMLFormElement;
     const $responseField = document.querySelector(
-        "#form-response",
+        "p#form-response",
     ) as HTMLSpanElement;
 
     $form?.addEventListener("submit", async (e) => {
         e.preventDefault();
 
         const data = new FormData(e.target as HTMLFormElement);
-
-        let sendData: any = {};
-
-        data.forEach((value, key) => {
-            sendData[key] = value;
-        });
 
         $responseField.textContent = "Enviando...";
 
@@ -68,7 +62,7 @@ const { className } = Astro.props;
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify(data),
+            body: JSON.stringify(Object.fromEntries(data))
         });
 
         if (response.status === 200 || response.status === 400) {
