@@ -1,0 +1,29 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { Image } from "astro:assets";
+import Icon from "astro-icon";
+---
+
+<Layout title="404" description="not found" lang="es">
+  <div
+    class="min-h-screen flex flex-col justify-center items-center dark:bg-[#1d232a] bg-white gap-4 dark:text-[#a6adba]"
+  >
+    <span class="text-6xl italic font-light text-center"
+      ><span class="text-blue-500">404</span> NOT FOUND</span
+    >
+    <button id="back">
+      <Icon
+        name="maki:arrow"
+        class="h-8 w-8 text-blue-500 rotate-180 hover:-translate-x-4 transition-all duration-300 hover:scale-125"
+      />
+    </button>
+  </div>
+</Layout>
+
+<script>
+  const $backButton = document.querySelector("#back") as HTMLButtonElement;
+
+  $backButton.addEventListener("click", () => {
+    window.history.back();
+  });
+</script>
