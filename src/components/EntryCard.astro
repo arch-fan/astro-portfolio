@@ -27,9 +27,9 @@ const { title, description, slug, icon, date, tags } = Astro.props;
       <time>
         {`${date.getDay()}/${date.getMonth()}/${date.getFullYear()}`}
       </time>
-      •
+       •
       <ul class="flex gap-2">
-        {tags.map( tag => <li>{tag}</li>)}
+        {tags.map((tag) => <li>{tag}</li>)}
       </ul>
     </div>
   </a>
