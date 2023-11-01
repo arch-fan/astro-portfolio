@@ -1,17 +1,102 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
-	theme: {
-		extend: {
-			colors: {
-				'main-color': '#1d232a',
-				'alt-text': '#A5C9CA'
-			}
-		},
-		screens: {
-			'lg': '840px'
-		}
-	},
-	plugins: [],
-	darkMode: 'class'
-}
+  content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
+  theme: {
+    extend: {
+      colors: {
+        "dark-title": {
+          DEFAULT: "#a5c9ca",
+          50: "#f5f9fa",
+          100: "#ebf2f3",
+          200: "#d2e4e5",
+          300: "#a5c9ca",
+          400: "#7eb1b2",
+          500: "#5e9899",
+          600: "#4a7d7f",
+          700: "#3d6467",
+          800: "#355557",
+          900: "#30494a",
+          950: "#202f31",
+        },
+        "dark-text": {
+          DEFAULT: "#a6adba",
+          50: "#f6f7f8",
+          100: "#eaecef",
+          200: "#dadde3",
+          300: "#c1c7cf",
+          400: "#a6adba",
+          500: "#8c93a5",
+          600: "#7b8095",
+          700: "#6e7387",
+          800: "#5d5f70",
+          900: "#4d4f5b",
+          950: "#31323a",
+        },
+        "dark-main": {
+          DEFAULT: "#1d232a",
+          50: "#f6f8f9",
+          100: "#eceff2",
+          200: "#d4dce3",
+          300: "#aebecb",
+          400: "#829aae",
+          500: "#637e94",
+          600: "#4e667b",
+          700: "#405264",
+          800: "#384654",
+          900: "#323d48",
+          950: "#1d232a",
+        },
+        "light-title": {
+          DEFAULT: "#0f172a",
+          50: "#f0f7fe",
+          100: "#deecfb",
+          200: "#c4e0f9",
+          300: "#9cccf4",
+          400: "#6dafed",
+          500: "#4b90e6",
+          600: "#3674da",
+          700: "#2d60c8",
+          800: "#2a4fa3",
+          900: "#274481",
+          950: "#0f172a",
+        },
+        "light-text": {
+          DEFAULT: "#000000",
+          50: "#f6f6f6",
+          100: "#e7e7e7",
+          200: "#d1d1d1",
+          300: "#b0b0b0",
+          400: "#888888",
+          500: "#6d6d6d",
+          600: "#5d5d5d",
+          700: "#4f4f4f",
+          800: "#454545",
+          900: "#3d3d3d",
+          950: "#000000",
+        },
+        "light-main": {
+          DEFAULT: "#ffffff",
+          50: "#ffffff",
+          100: "#efefef",
+          200: "#dcdcdc",
+          300: "#bdbdbd",
+          400: "#989898",
+          500: "#7c7c7c",
+          600: "#656565",
+          700: "#525252",
+          800: "#464646",
+          900: "#3d3d3d",
+          950: "#292929",
+        },
+
+        "main-color": "#1d232a",
+        "alt-text": "#A5C9CA",
+      },
+    },
+    screens: {
+      lg: "840px",
+    },
+  },
+  plugins: [require("@tailwindcss/typography")],
+  darkMode: "class",
+};

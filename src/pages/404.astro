@@ -1,10 +1,12 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import { Image } from "astro:assets";
+import Navbar from "@/components/Navbar.astro";
 import Icon from "astro-icon";
 ---
 
 <Layout title="404" description="not found" lang="es">
+  <Navbar />
   <div
     class="min-h-screen flex flex-col justify-center items-center dark:bg-[#1d232a] bg-white gap-4 dark:text-[#a6adba]"
   >

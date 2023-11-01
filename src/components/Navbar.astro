@@ -1,65 +1,28 @@
 ---
 import { Icon } from "astro-icon";
-import { navigationMenu } from "@/data/common.ts";
+import ThemeButton from "./ThemeButton.astro";
 ---
 
 <header
-    class="backdrop-blur fixed justify-center w-screen flex py-8 dark:text-[#a6adba] z-50"
+  class="w-full fixed p-2 flex justify-center dark:text-dark-title shadow z-50 dark:bg-dark-main bg-light-main transition duration-800"
 >
-    <nav class="flex justify-between w-[840px] lg:px-0 px-2">
-        <h2>
-            <a href="/" aria-label="Pagina principal"
-                ><Icon
-                    name="JL"
-                    class="lg:h-12 lg:w-12 w-10 h-10 dark:fill-white lg:ml-0 ml-4 fill-black"
-                /></a
-            >
-        </h2>
-        <ul
-            class="flex gap-5 font-bold items-center hover:[&>li]:transition-all [&>li]:transition [&>li]:duration-300 hover:[&>li]:duration-300 dark:hover:[&>li]:text-alt-text hover:[&>li]:text-blue-400"
-        >
-            {
-                navigationMenu.map((item) => (
-                    <li>
-                        <a href={item.path}>{item.text}</a>
-                    </li>
-                ))
-            }
-            <li class="w-6 h-6">
-                <button id="theme-changer" class="w-6 h-6" aria-label="Cambiar tema">
-                    <Icon name="ph:sun" />
-                    <Icon name="ph:moon" />
-                </button>
-            </li>
-        </ul>
-    </nav>
+  <div class="flex w-[840px] justify-between items-center">
+    <Icon name="JL" class="h-12 w-12 dark:fill-white fill-black" />
+    <div class="flex items-center justify-center gap-8">
+      <nav
+        class="p-1 grid grid-cols-3 [&_a]:self-stretch gap-4 dark:hover:[&_a]:bg-white/5 hover:[&_a]:bg-black/5  hover:[&_a]:transition-all [&_a]:p-1 [&_a]:rounded [&_a]:text-center"
+      >
+        <a href="/">Portfolio</a>
+        <a href="/blog">Blog</a>
+        <a href="/contacto">Contacto</a>
+      </nav>
+      <ThemeButton />
+    </div>
+  </div>
 </header>
 
-<script is:inline>
-const $themeButton = document.querySelector("#theme-changer");
-const $sunSvg = document.querySelector('svg[astro-icon="ph:sun"]');
-const $moonSvg = document.querySelector('svg[astro-icon="ph:moon"]');
-
-function updateButton() {
-    if (localStorage.theme === "light") {
-        $sunSvg.classList.remove("hidden");
-        $moonSvg.classList.add("hidden");
-    } else {
-        $sunSvg.classList.add("hidden");
-        $moonSvg.classList.remove("hidden");
-    }
-}
-
-updateButton();
-
-$themeButton?.addEventListener("click", () => {
-    if (localStorage.theme === "light") {
-        document.documentElement.classList.add("dark");
-        localStorage.theme = "dark";
-    } else {
-        document.documentElement.classList.remove("dark");
-        localStorage.theme = "light";
-    }
-    updateButton();
-});
-</script>
+<style>
+  html {
+    scroll-padding-top: 104.5px;
+  }
+</style>
