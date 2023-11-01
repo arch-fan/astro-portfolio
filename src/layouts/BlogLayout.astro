@@ -1,0 +1,16 @@
+---
+const { frontmatter } = Astro.props;
+---
+
+<main>
+  <h1
+    class="w-full mt-12 text-light-title dark:text-violet-200 font-bold text-4xl"
+  >
+    {frontmatter.title}
+  </h1>
+  <article class="mt-8 dark:prose-invert prose prose-lg max-w-none">
+    <slot />
+  </article>
+</main>
+
+<style></style>

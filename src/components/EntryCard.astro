@@ -1,0 +1,36 @@
+---
+import { Icon } from "astro-icon";
+
+interface Props {
+  title: string;
+  description: string;
+  slug: string;
+  icon?: string;
+  date: Date;
+  tags: String[];
+}
+const { title, description, slug, icon, date, tags } = Astro.props;
+---
+
+<article
+  class="w-full h-40 border dark:bg-dark-main-900/30 bg-light-main-100/30 dark:border-white border-gray-200 rounded flex flex-col shadow p-2 transition-all hover:-translate-y-2"
+>
+  <a href={`/blog/${slug}`} class="w-full h-full flex flex-col justify-between">
+    <div>
+      <h2 class="text-2xl font-bold dark:text-dark-title-100 line-clamp-1">
+        {title}
+        {icon && <Icon name={icon} class="h-6 inline ml-2" />}
+      </h2>
+      <p class="mt-2 line-clamp-4">{description}</p>
+    </div>
+    <div class="text-white italic text-sm flex gap-2">
+      <time>
+        {`${date.getDay()}/${date.getMonth()}/${date.getFullYear()}`}
+      </time>
+       •
+      <ul class="flex gap-2">
+        {tags.map((tag) => <li>{tag}</li>)}
+      </ul>
+    </div>
+  </a>
+</article>

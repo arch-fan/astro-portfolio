@@ -1,0 +1,40 @@
+---
+title: Primer post
+icon: simple-icons:astro
+description: Este es el primer post de mi web. Estamos probando la funcionalidad de contenido de Astro. Aun no está del todo terminado, pero vamos mejorando.
+layout: "@/layouts/BlogLayout.astro"
+date: 2023-11-01
+tags:
+  - Programación
+---
+import { Icon } from 'astro-icon'
+
+## Este es el primer post
+
+Hola, este es mi primer post utilizando archivos Markdown con astro. Porque si, esta web esta hecha con Astro <Icon name="simple-icons:astro" class="h-6 inline" /> y Tailwindcss <Icon name="mdi:tailwind" class="h-8 inline" /> e ire compartiendo lo que vaya haciendo por aquí.
+
+Lo primero, este es el frontmatter que tiene este post:
+
+```mdx
+---
+title: Primer post
+icon: simple-icons:astro
+description: Este es el primer post de mi web. Estamos probando la funcionalidad de contenido de Astro. Aun no está del todo terminado, pero vamos mejorando.
+layout: "@/layouts/BlogLayout.astro"
+date: 2023-11-01
+tags:
+  - Programación
+---
+```
+
+Y si, he tenido que separar el icono que se muestra en la parte de blog del titulo. Me gustaría poder poner iconos en el titulo, pero mdx no me lo permite, por algun motivo.
+
+## Terminando con el post
+
+Tampoco hay mucho más que hablar para la primera vez, por lo que te animo a mirar [mi portfolio](/) u [otros posts](/blog) (si es que hay)
+
+```rs
+fn main() {
+    println!("Hasta luego!")
+}
+```

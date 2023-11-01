@@ -1,8 +1,8 @@
 ---
 interface Props {
-	title: string;
-	lang: string;
-	description: string;
+  title: string;
+  lang: string;
+  description: string;
 }
 
 const { title, lang, description } = Astro.props;
@@ -10,38 +10,34 @@ const { title, lang, description } = Astro.props;
 
 <!doctype html>
 <html lang={lang}>
-	<head>
-		<meta charset="UTF-8" />
-		<meta
-			name="description"
-			content=`${description}`
-		/>
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title} | Portfolio de Juan Luis</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content=`${description}` />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title} | Portfolio de Juan Luis</title>
+    <script is:inline>
+    if (
+      localStorage.theme === "dark" ||
+      (!("theme" in localStorage) &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches)
+    ) {
+      document.documentElement.classList.add("dark");
+      localStorage.theme = "dark";
+    } else {
+      document.documentElement.classList.remove("dark");
+      localStorage.theme = "light";
+    }
+    </script>
+  </head>
+  <body class="dark:bg-dark-main bg-light-main transition duration-800">
+    <slot />
+  </body>
 </html>
 
 <style is:global>
-	html {
-		scroll-behavior: smooth;
-	}
+  html {
+    scroll-behavior: smooth;
+  }
 </style>
-
-<script is:inline>
-	if (
-		localStorage.theme === "dark" ||
-		(!("theme" in localStorage) &&
-			window.matchMedia("(prefers-color-scheme: dark)").matches)
-	) {
-		document.documentElement.classList.add("dark");
-		localStorage.theme = "dark";
-	} else {
-		document.documentElement.classList.remove("dark");
-		localStorage.theme = "light";
-	}
-</script>
