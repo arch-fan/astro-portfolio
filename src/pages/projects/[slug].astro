@@ -1,0 +1,44 @@
+---
+import { projects, type Project } from "@/data/projects";
+import MainLayout from "@/layouts/MainLayout.astro";
+import { Image } from "astro:assets";
+import { Icon } from "astro-icon";
+
+import type { GetStaticPaths } from "astro";
+export const getStaticPaths = (() => {
+    return projects.map((project) => ({
+        params: { slug: project.name.toLocaleLowerCase().replace(" ", "-") },
+        props: { project },
+    }));
+}) satisfies GetStaticPaths;
+
+const { project } = Astro.props;
+const { name, image, description, technologiesIcons } = project;
+---
+
+<MainLayout title={name} description={description} lang="es">
+    <main class="mt-8 flex flex-col gap-4">
+        <Image
+            src={image}
+            alt={name}
+            width={820}
+            height={461}
+            class="border-4 dark:border-dark-title border-light-title rounded"
+        />
+        <h1
+            class="text-5xl text-center dark:text-dark-title text-light-title font-bold"
+        >
+            {name}
+        </h1>
+        <p class="text-xl">{description}</p>
+        <ul class="grid grid-cols-6 w-full place-items-center">
+            {
+                technologiesIcons.map((techIcon) => (
+                    <li class="w-12 border-r border-b box-content py-6 px-4 rounded shadow hover:border-0 hover:shadow-none cursor-crosshair">
+                        <Icon name={techIcon} />
+                    </li>
+                ))
+            }
+        </ul>
+    </main>
+</MainLayout>

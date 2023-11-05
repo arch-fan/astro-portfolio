@@ -4,8 +4,8 @@ This repo is my portfolio, only build with Astro.
 
 TODO:
 
-- [ ] Include Open Graph Meta Tags
-- [ ] Make projects dynamic site
+- [x] Include Open Graph Meta Tags
+- [x] Make projects dynamic site
 - [ ] Record studies somewhere
 - [ ] Update profile pick
 - [ ] Something related with my hobbies
