@@ -2,6 +2,11 @@
 import Layout from "@/layouts/Layout.astro";
 import Navbar from "@/components/Navbar.astro";
 import Icon from "astro-icon";
+import { Image } from "astro:assets";
+
+import taBien from "@/media/images/ta-bien.png";
+import taMal from "@/media/images/ta-mal.jpg";
+import taMaomeno from "@/media/images/ta-maomeno.jpg";
 ---
 
 <Layout title="404" description="not found" lang="es">
@@ -9,6 +14,11 @@ import Icon from "astro-icon";
   <div
     class="min-h-screen flex flex-col justify-center items-center dark:bg-[#1d232a] bg-white gap-4 dark:text-[#a6adba]"
   >
+    <picture>
+      <Image src={taBien} alt="tabien" class="hidden" width={400} />
+      <Image src={taMal} alt="tamal" class="hidden" width={400} />
+      <Image src={taMaomeno} alt="tamaomeno" class="hidden" />
+    </picture>
     <span class="text-6xl italic font-light text-center"
       ><span class="text-blue-500">404</span> NOT FOUND</span
     >
@@ -27,4 +37,14 @@ import Icon from "astro-icon";
   $backButton.addEventListener("click", () => {
     window.history.back();
   });
+
+  const randomN = Math.random();
+
+  if (randomN < 0.49) {
+    document.querySelector('img[alt="tabien"]')?.classList.remove("hidden");
+  } else if (randomN > 0.51) {
+    document.querySelector('img[alt="tamal"]')?.classList.remove("hidden");
+  } else {
+    document.querySelector('img[alt="tamaomeno"]')?.classList.remove("hidden");
+  }
 </script>
