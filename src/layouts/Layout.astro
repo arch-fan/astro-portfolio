@@ -17,9 +17,13 @@ const { title, lang, description } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title} | Juan Luis Sanchez Pozo</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Cascadia+Code&display=swap"
-      rel="stylesheet"
+    <meta
+      property="og:image"
+      content={`https://arch-fan.com/api/og?title=${title}`}
+    />
+    <meta
+      name="twitter:image"
+      content={`https://arch-fan.com/api/og?title=${title}`}
     />
     <script is:inline>
       if (
