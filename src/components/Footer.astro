@@ -1,4 +1,4 @@
-<footer class="w-full dark:bg-main-color dark:text-white p-8 relative">
+<footer class="w-full absolute bottom-0 dark:bg-main-color dark:text-white p-8">
     <div class="absolute top-0 left-0 w-full flex justify-center">
         <span
             class="dark:bg-white scale-x-0 bg-black w-full h-[1px]"
@@ -27,7 +27,7 @@
         entries.forEach((entry) => {
             if (entry.isIntersecting) {
                 entry.target.classList.add("animate-[spawnBar_1s_ease-in-out]");
-                entry.target.classList.remove("scale-x-0")
+                entry.target.classList.remove("scale-x-0");
                 observer.unobserve(entry.target);
             }
         });
