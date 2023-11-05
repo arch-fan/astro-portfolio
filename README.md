@@ -3,6 +3,7 @@
 This repo is my portfolio, only build with Astro.
 
 TODO:
+
 - [ ] Include Open Graph Meta Tags
 - [ ] Make projects dynamic site
 - [ ] Record studies somewhere
