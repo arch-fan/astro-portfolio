@@ -23,7 +23,9 @@ const { title, description, slug, icon, date, tags } = Astro.props;
       </h2>
       <p class="mt-2 line-clamp-4">{description}</p>
     </div>
-    <div class="text-white italic text-sm flex gap-2 line-clamp-1">
+    <div
+      class="dark:text-white text-dark-main italic text-sm flex gap-2 line-clamp-1"
+    >
       <time>
         {date.toLocaleDateString()}
       </time>
