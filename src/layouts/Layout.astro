@@ -18,26 +18,25 @@ const { title, lang, description } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{title} | Portfolio de Juan Luis</title>
     <script is:inline>
-    if (
-      localStorage.theme === "dark" ||
-      (!("theme" in localStorage) &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches)
-    ) {
-      document.documentElement.classList.add("dark");
-      localStorage.theme = "dark";
-    } else {
-      document.documentElement.classList.remove("dark");
-      localStorage.theme = "light";
-    }
+      if (
+        localStorage.theme === "dark" ||
+        (!("theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        document.documentElement.classList.add("dark");
+        localStorage.theme = "dark";
+      } else {
+        document.documentElement.classList.remove("dark");
+        localStorage.theme = "light";
+      }
     </script>
   </head>
   <body class="dark:bg-dark-main bg-light-main transition duration-800">
     <slot />
+    <style is:global>
+      html {
+        scroll-behavior: smooth;
+      }
+    </style>
   </body>
 </html>
-
-<style is:global>
-  html {
-    scroll-behavior: smooth;
-  }
-</style>
