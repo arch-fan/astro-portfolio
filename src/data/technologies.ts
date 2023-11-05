@@ -23,7 +23,7 @@ export const technologies: Technology[] = [
     {
         tech: "TypeScript",
         icon: "simple-icons:typescript",
-        percentage: 50
+        percentage: 70
     },
     {
         tech: "Rust",
@@ -43,7 +43,7 @@ export const technologies: Technology[] = [
     {
         tech: "Java",
         icon: "cib:java",
-        percentage: 10
+        percentage: 20
     },
     {
         tech: "React",
