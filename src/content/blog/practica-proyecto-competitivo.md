@@ -17,7 +17,7 @@ El programa trabajará sobre tres datos principales.
 El primer dato principal serán las etapas. Son 4 etapas por lo que guardamos los kilometros en un Array de 4 posiciones, una por etapa.
 
 ```java
-double[] = { 74.12, 63.89, 67.37, 84.03 }
+double[] = { 74.12, 63.89, 67.37, 84.03 };
 ```
 
 El segundo, sera un ArrayList de Arrays, cada array (el String[]) hace referencia a un equipo
@@ -30,7 +30,7 @@ ArrayList<String[]> equipos;
 String[] equipo = {"Nombre Equipo", "Nombre corredor 1", "Nombre corredor 2"};
 
 // Guardamos el equipo
-equipos.add(equipo)
+equipos.add(equipo);
 ```
 
 Basicamente, lo que contiene cada String[] es un equipo que se guarda en el ArrayList equipos.
@@ -45,7 +45,7 @@ ArrayList<double[]> tiemposEtapa;
 double[] tiempoEtapa = new double[4];
 
 // Guardamos el tiempo en el array
-tiemposEtapa.add(tiempoEtapa)
+tiemposEtapa.add(tiempoEtapa);
 
 ```
 
