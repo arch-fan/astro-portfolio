@@ -13,7 +13,7 @@ export const getStaticPaths = (() => {
 }) satisfies GetStaticPaths;
 
 const { project } = Astro.props;
-const { name, image, description, technologiesIcons } = project;
+const { name, image, description, technologiesIcons, link } = project;
 ---
 
 <MainLayout title={name} description={description} lang="es">
@@ -31,8 +31,13 @@ const { name, image, description, technologiesIcons } = project;
             {name}
         </h1>
         <p class="text-xl">{description}</p>
+        <a
+            href={link}
+            class="self-center border py-2 px-4 rounded border-black dark:border-dark-title hover:scale-110 transition-all dark:hover:bg-dark-main-900 hover:bg-light-main-100"
+            >Visitar proyecto</a
+        >
         <ul
-            class="grid gap-6 grid-cols-3 lg:grid-cols-6 w-full place-items-center"
+            class="grid gap-6 grid-cols-3 lg:grid-cols-6 w-full place-items-center mt-2"
         >
             {
                 technologiesIcons.map((techIcon) => (
