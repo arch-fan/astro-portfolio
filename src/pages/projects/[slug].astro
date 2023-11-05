@@ -31,10 +31,12 @@ const { name, image, description, technologiesIcons } = project;
             {name}
         </h1>
         <p class="text-xl">{description}</p>
-        <ul class="grid grid-cols-6 w-full place-items-center">
+        <ul
+            class="grid gap-6 grid-cols-3 lg:grid-cols-6 w-full place-items-center"
+        >
             {
                 technologiesIcons.map((techIcon) => (
-                    <li class="w-12 border-r border-b box-content py-6 px-4 rounded shadow hover:border-0 hover:shadow-none cursor-crosshair">
+                    <li class="w-12 border-r border-b dark:border-dark-title border-black box-content py-6 px-4 rounded shadow hover:border-0 hover:shadow-none cursor-crosshair hover:translate-y-1">
                         <Icon name={techIcon} />
                     </li>
                 ))
