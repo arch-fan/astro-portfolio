@@ -1,4 +1,4 @@
-# Juan Luis Sanchez Pozo Portfolio. (arch-fan)
+# Juan Luis Sanchez Pozo Portfolio (arch-fan)
 
 This repo is my portfolio, only build with Astro.
 
