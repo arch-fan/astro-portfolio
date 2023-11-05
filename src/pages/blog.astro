@@ -1,9 +1,9 @@
 ---
-import EntryCard from "@/components/EntryCard.astro"
-import { getCollection } from 'astro:content';
+import EntryCard from "@/components/EntryCard.astro";
+import { getCollection } from "astro:content";
 import MainLayout from "@/layouts/MainLayout.astro";
 
-const allBlogPosts = await getCollection('blog')
+const allBlogPosts = await getCollection("blog");
 ---
 
 <MainLayout
@@ -11,14 +11,12 @@ const allBlogPosts = await getCollection('blog')
   title="Blog"
   description="Este es el blog de Juan Luis Sanchez Pozo. Aqui subo algunos posts interesantes sobre diversos temas."
 >
-  <h1 class="text-5xl mt-4 w-full lg:text-start text-center dark:text-dark-title text-light-title font-bold">
+  <h1
+    class="text-5xl mt-4 w-full lg:text-start text-center dark:text-dark-title text-light-title font-bold"
+  >
     Ultimas entradas
   </h1>
-  <main class="flex flex-col mt-4 lg:w-8/12 w-full">
-   {
-      allBlogPosts.map(post => (
-         <EntryCard {...post.data} slug={post.slug} />
-      ))
-   }
+  <main class="flex flex-col mt-4 gap-4 lg:w-8/12 w-full">
+    {allBlogPosts.map((post) => <EntryCard {...post.data} slug={post.slug} />)}
   </main>
 </MainLayout>
