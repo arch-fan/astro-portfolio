@@ -3,14 +3,22 @@ const { frontmatter } = Astro.props;
 ---
 
 <main>
-  <h1
-    class="w-full mt-12 text-light-title dark:text-violet-200 font-bold text-4xl"
-  >
-    {frontmatter.title}
-  </h1>
+  <header class="flex flex-col">
+    <h1
+      class="w-full mt-12 text-light-title dark:text-violet-200 font-bold text-4xl"
+    >
+      {frontmatter.title}
+    </h1>
+    <div class="flex">
+      <time class="text-xm"
+        >{new Date(frontmatter.date).toLocaleDateString()}</time
+      > &nbsp; - &nbsp;
+      <ul>
+        {frontmatter.tags.join(" - ")}
+      </ul>
+    </div>
+  </header>
   <article class="mt-8 dark:prose-invert prose prose-lg max-w-none mb-8">
     <slot />
   </article>
 </main>
-
-<style></style>
