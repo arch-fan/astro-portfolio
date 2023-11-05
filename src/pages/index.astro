@@ -19,121 +19,132 @@ import icon from "@/media/images/icon.png";
 import Contact from "@/components/Contact.astro";
 ---
 
-<Layout title="Inicio" description="Bienvenido al portfolio de Juan Luis Sanchez Pozo. Espero que disfrutes de la instancia 😜" lang="es">
-    <Navbar />
-  <div class="min-h-screen">
-    <main class="lg:w-[840px] w-full px-4 lg:p-0 m-auto dark:text-[#a6adba]">
-      <div
-        class="h-screen flex lg:flex-row flex-col-reverse items-center justify-center gap-4"
-        id="home"
-      >
-        <div>
-          <h1 class="lg:text-5xl text-3xl font-bold">Juan Luis Sánchez Pozo</h1>
-          <div class="flex gap-4 items-end">
-            <p
-              class="text-xl after:content-[''] after:block after:bg-blue-500 after:h-[2px] after:animate-pulse w-fit after:rounded"
-            >
-              Full Stack Developer
-            </p>
-            <div class="flex gap-2">
-              <a
-                href="https://www.linkedin.com/in/juan-luis-s-6ab75718a/"
-                aria-label="Visitar LinkedIn"
+<Layout
+  title="Inicio"
+  description="Bienvenido al portfolio de Juan Luis Sanchez Pozo. Espero que disfrutes de la instancia 😜"
+  lang="es"
+>
+  <Navbar />
+  <div class="relative pb-8">
+    <div class="min-h-screen">
+      <main class="lg:w-[840px] w-full px-4 lg:p-0 m-auto dark:text-[#a6adba]">
+        <div
+          class="h-screen flex lg:flex-row flex-col-reverse items-center justify-center gap-4"
+          id="home"
+        >
+          <div>
+            <h1 class="lg:text-5xl text-3xl font-bold">
+              Juan Luis Sánchez Pozo
+            </h1>
+            <div class="flex gap-4 items-end">
+              <p
+                class="text-xl after:content-[''] after:block after:bg-blue-500 after:h-[2px] after:animate-pulse w-fit after:rounded"
               >
-                <Icon
-                  name="bi:linkedin"
-                  class="h-6 hover:text-[#0073b1]"
+                Full Stack Developer
+              </p>
+              <div class="flex gap-2">
+                <a
+                  href="https://www.linkedin.com/in/juan-luis-s-6ab75718a/"
+                  aria-label="Visitar LinkedIn"
+                >
+                  <Icon
+                    name="bi:linkedin"
+                    class="h-6 hover:text-[#0073b1]"
+                    aria-label="Visitar GitHub"
+                  />
+                </a>
+                <a
+                  href="https://github.com/arch-fan"
                   aria-label="Visitar GitHub"
-                />
-              </a>
-              <a href="https://github.com/arch-fan" aria-label="Visitar GitHub">
-                <Icon
-                  name="bi:github"
-                  class="h-6 dark:hover:text-white hover:text-gray-500"
-                />
-              </a>
-              <a href="/blog" class="underline font-bold">
-                BLOG!
-              </a>
+                >
+                  <Icon
+                    name="bi:github"
+                    class="h-6 dark:hover:text-white hover:text-gray-500"
+                  />
+                </a>
+                <a href="/blog" class="underline font-bold"> BLOG!</a>
+              </div>
             </div>
           </div>
+          <figure>
+            <Image
+              src={icon}
+              alt="Icon"
+              srcset={`${icon} 1x, ${icon} 2x`}
+              class="rounded-full"
+              width={200}
+              height={200}
+              loading="eager"
+            />
+          </figure>
         </div>
-        <figure>
-          <Image
-            src={icon}
-            alt="Icon"
-            srcset={`${icon} 1x, ${icon} 2x`}
-            class="rounded-full"
-            width={200}
-            height={200}
-            loading="eager"
-          />
-        </figure>
-      </div>
 
-      <HomeEntry title="Sobre mí" id="about-me">
-        <div class="grid lg:grid-cols-2 mt-4 place-items-center">
-          <div class="flex flex-col gap-4">
-            <p>
-              Hola, mi nombre es <span class="dark:text-blue-400 text-blue-700"
-                >Juan</span
-              >, tengo 18 años y soy un desarrollador Full Stack Junior.
-              Actualmente me encuentro estudiando un Grado Superior de
-              Desarrollo de Aplicaciones Multiplataforma (<strong>DAM</strong>)
-              en el que estoy aprendiendo Java y creación de aplicaciones
-              móviles en Android.
-            </p>
-            <p>
-              Me encanta trabajar en proyectos interesantes que puedan hacerme
-              crecer como desarrollador, además de ser fan del open source.
-              Espero con ansia empezar a estudiar Ingeniería de Software, aun
-              que todavía me quedan un par de años.
-            </p>
-            <p>
-              Algunos de mis hobbies son la lectura, la programación y los
-              videojuegos.
-            </p>
+        <HomeEntry title="Sobre mí" id="about-me">
+          <div class="grid lg:grid-cols-2 mt-4 place-items-center">
+            <div class="flex flex-col gap-4">
+              <p>
+                Hola, mi nombre es <span
+                  class="dark:text-blue-400 text-blue-700">Juan</span
+                >, tengo 18 años y soy un desarrollador Full Stack Junior.
+                Actualmente me encuentro estudiando un Grado Superior de
+                Desarrollo de Aplicaciones Multiplataforma (<strong>DAM</strong
+                >) en el que estoy aprendiendo Java y creación de aplicaciones
+                móviles en Android.
+              </p>
+              <p>
+                Me encanta trabajar en proyectos interesantes que puedan hacerme
+                crecer como desarrollador, además de ser fan del open source.
+                Espero con ansia empezar a estudiar Ingeniería de Software, aun
+                que todavía me quedan un par de años.
+              </p>
+              <p>
+                Algunos de mis hobbies son la lectura, la programación y los
+                videojuegos.
+              </p>
+            </div>
+            <Image
+              src={spikeSpiegel}
+              alt="Spike fumando"
+              width={351}
+              height={333}
+            />
           </div>
-          <Image
-            src={spikeSpiegel}
-            alt="Spike fumando"
-            width={351}
-            height={333}
-          />
-        </div>
-      </HomeEntry>
-      <HomeEntry title="Proyectos" id="projects">
-        <div class="grid lg:grid-cols-3 grid-cols-2 mt-4 gap-2">
-          {projects.map((project) => <Project {...project} />)}
-        </div>
-      </HomeEntry>
-      <HomeEntry title="Tecnologías">
-        <div class="flex-col mt-4 gap-4 grid grid-cols-[24px_max-content_1fr]">
-          {
-            technologies
-              .sort((a, b) => b.percentage - a.percentage)
-              .map((tech) => <Technology {...tech} />)
-          }
-        </div>
-      </HomeEntry>
-      <HomeEntry title="Experiencia">
-        <Timeline>
-          {experience.map((job) => <TimelineItem {...job} />)}
-        </Timeline>
-
-        <div class="flex w-full justify-center">
-          <a
-            href={CV}
-            class="p-3 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 bg-blackrounded rounded border dark:border-white border-black shadow"
+        </HomeEntry>
+        <HomeEntry title="Proyectos" id="projects">
+          <div class="grid lg:grid-cols-3 grid-cols-2 mt-4 gap-2">
+            {projects.map((project) => <Project {...project} />)}
+          </div>
+        </HomeEntry>
+        <HomeEntry title="Tecnologías">
+          <div
+            class="flex-col mt-4 gap-4 grid grid-cols-[24px_max-content_1fr]"
           >
-            Descargar CV
-          </a>
-        </div>
-      </HomeEntry>
-      <HomeEntry title="Contáctame" centerTitle={true}>
-        <Contact className="mt-4 flex flex-col lg:w-96 w-full" />
-      </HomeEntry>
-    </main>
+            {
+              technologies
+                .sort((a, b) => b.percentage - a.percentage)
+                .map((tech) => <Technology {...tech} />)
+            }
+          </div>
+        </HomeEntry>
+        <HomeEntry title="Experiencia">
+          <Timeline>
+            {experience.map((job) => <TimelineItem {...job} />)}
+          </Timeline>
+
+          <div class="flex w-full justify-center">
+            <a
+              href={CV}
+              class="p-3 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 bg-blackrounded rounded border dark:border-white border-black shadow"
+            >
+              Descargar CV
+            </a>
+          </div>
+        </HomeEntry>
+        <HomeEntry title="Contáctame" centerTitle={true}>
+          <Contact className="mt-4 flex flex-col lg:w-96 w-full" />
+        </HomeEntry>
+      </main>
+    </div>
+    <Footer />
   </div>
-  <Footer />
 </Layout>

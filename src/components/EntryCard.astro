@@ -25,7 +25,7 @@ const { title, description, slug, icon, date, tags } = Astro.props;
     </div>
     <div class="text-white italic text-sm flex gap-2 line-clamp-1">
       <time>
-        {`${date.getDay()}/${date.getMonth()}/${date.getFullYear()}`}
+        {date.toLocaleDateString()}
       </time>
        •
       <ul class="flex gap-2">
