@@ -19,6 +19,9 @@ const { name, image, description, technologiesIcons, link } = project;
 <MainLayout title={name} description={description} lang="es">
     <main class="mt-8 flex flex-col gap-4">
         <Image
+            transition:name={`proyectos-${name
+                .toLocaleLowerCase()
+                .replace(" ", "")}`}
             src={image}
             alt={name}
             width={820}

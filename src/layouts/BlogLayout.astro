@@ -6,6 +6,9 @@ const { frontmatter } = Astro.props;
   <header class="flex flex-col">
     <h1
       class="w-full mt-12 text-light-title dark:text-violet-200 font-bold text-4xl"
+      transition:name={`entrycard-${frontmatter.title
+        .toLowerCase()
+        .replace(" ", "")}`}
     >
       {frontmatter.title}
     </h1>

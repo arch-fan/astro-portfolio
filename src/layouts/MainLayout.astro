@@ -12,7 +12,7 @@ interface Props {
 const { lang, title, description } = Astro.props;
 ---
 
-<Layout lang={lang} title={title} description={description}>
+<Layout lang={lang} title={title} description={description} transition:persist>
   <Navbar />
   <div class="min-h-screen relative pb-[88px]">
     <div

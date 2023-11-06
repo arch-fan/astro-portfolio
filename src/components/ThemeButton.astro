@@ -3,35 +3,54 @@ import { Icon } from "astro-icon";
 ---
 
 <button id="theme-changer" class="w-6 h-6" aria-label="Cambiar tema">
-  <Icon name="ph:sun" />
-  <Icon name="ph:moon" class="hidden" />
+    <Icon name="ph:sun" />
+    <Icon name="ph:moon" class="hidden" />
 </button>
 
 <script is:inline>
-const $themeButton = document.querySelector("#theme-changer");
-const $sunSvg = document.querySelector('svg[astro-icon="ph:sun"]');
-const $moonSvg = document.querySelector('svg[astro-icon="ph:moon"]');
+    function themeHandler() {
+        const $themeButton = document.querySelector("#theme-changer");
+        const $sunSvg = document.querySelector('svg[astro-icon="ph:sun"]');
+        const $moonSvg = document.querySelector('svg[astro-icon="ph:moon"]');
 
-function updateButton() {
-    if (localStorage.theme === "light") {
-        $sunSvg.classList.remove("hidden");
-        $moonSvg.classList.add("hidden");
-    } else {
-        $sunSvg.classList.add("hidden");
-        $moonSvg.classList.remove("hidden");
+        const updateMode = () => {
+            if (!localStorage.theme || localStorage.theme === "dark") {
+                localStorage.theme = "light";
+                document.documentElement.classList.remove("dark");
+                $sunSvg.classList.remove("hidden");
+                $moonSvg.classList.add("hidden");
+            } else {
+                localStorage.theme = "dark";
+                document.documentElement.classList.add("dark");
+                $sunSvg.classList.add("hidden");
+                $moonSvg.classList.remove("hidden");
+            }
+        };
+
+        if (
+            localStorage.theme === "dark" ||
+            (!("theme" in localStorage) &&
+                window.matchMedia("(prefers-color-scheme: dark)").matches)
+        ) {
+            localStorage.theme = "dark";
+            document.documentElement.classList.add("dark");
+            $sunSvg.classList.add("hidden");
+            $moonSvg.classList.remove("hidden");
+        } else {
+            localStorage.theme = "light";
+            document.documentElement.classList.remove("dark");
+            $sunSvg.classList.remove("hidden");
+            $moonSvg.classList.add("hidden");
+        }
+
+        $themeButton.addEventListener("click", () => {
+            updateMode();
+        });
     }
-}
 
-$themeButton?.addEventListener("click", () => {
-    if (localStorage.theme === "light") {
-        document.documentElement.classList.add("dark");
-        localStorage.theme = "dark";
-    } else {
-        document.documentElement.classList.remove("dark");
-        localStorage.theme = "light";
-    }
-    updateButton();
-});
+    themeHandler();
 
-updateButton();
+    document.addEventListener("astro:after-swap", () => {
+        themeHandler();
+    });
 </script>

@@ -12,6 +12,9 @@ const { name, link, image, description } = Astro.props;
 >
     <a href={link} rel="dofollow" class="w-fit">
         <Image
+            transition:name={`proyectos-${name
+                .toLocaleLowerCase()
+                .replace(" ", "")}`}
             src={image}
             alt={name}
             class="rounded"
