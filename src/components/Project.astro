@@ -31,7 +31,7 @@ const { name, link, image, description } = Astro.props;
             />
         </a>
         <a
-            href={`/projects/${name.toLocaleLowerCase().replace(" ", "-")}`}
+            href={`/projects/${name.toLowerCase().replaceAll(" ", "-")}`}
             aria-label={`Más información sobre ${name}`}
         >
             <Icon

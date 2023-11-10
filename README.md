@@ -7,6 +7,6 @@ TODO:
 - [x] Include Open Graph Meta Tags
 - [x] Make projects dynamic site
 - [ ] Record studies somewhere
-- [ ] Update profile pick
+- [ ] Update profile pic
 - [ ] Something related with my hobbies
 - [ ] Add projects
