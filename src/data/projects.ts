@@ -1,28 +1,38 @@
 import type { ImageMetadata } from "astro";
-import contratarSeguroOnline from '@/media/images/projects/contratar-seguro-online.png'
-import laurelBroker from '@/media/images/projects/laurelbroker.png'
+import contratarSeguroOnline from '@/media/images/projects/contratar-seguro-online.png';
+import laurelBroker from '@/media/images/projects/laurelbroker.png';
 
-export interface Project {
-    name: string;
-    link: string;
-    image: ImageMetadata;
-    description: string;
-    technologiesIcons: string[]
+class Project {
+    public name: string;
+    public link: string;
+    public image: ImageMetadata;
+    public description: string;
+    public technologiesIcons: string[];
+    public slug: string;
+
+    constructor(name: string, link: string, image: ImageMetadata, description: string, technologiesIcons: string[]) {
+        this.name = name;
+        this.link = link;
+        this.image = image;
+        this.description = description;
+        this.technologiesIcons = technologiesIcons;
+        this.slug = name.toLowerCase().replaceAll(" ", "-")
+    }
 }
 
 export const projects: Project[] = [
-    {
-        name: "Contratar Seguro Online",
-        link: "https://adeslas.saludyseguromedico.es/",
-        image: contratarSeguroOnline,
-        description: "Contratar Seguro Online es una de las dos webs en la que estuve trabajando en mi tiempo como desarrollador de WordPress en Adeslas. Esta web trata sobre Seguros de Salud Adeslas. También cree videos publicitarios con After Effects en YouTube sobre los planes de salud de adeslas.",
-        technologiesIcons: ['bi:wordpress', 'icon-park-outline:seo', 'cib:adobe-after-effects', 'akar-icons:css-fill', 'akar-icons:html-fill', 'teenyicons:javascript-solid']
-    },
-    {
-        name: "LaurelBroker",
-        link: "https://laurelbroker.com/",
-        image: laurelBroker,
-        description: "LaurelBroker es una de las dos webs en la que estuve trabajando en mi tiempo como desarrollador de WordPress en Adeslas. Esta web es un comparador de seguros de salud entre diferentes compañias. También cree videos publicitarios con After Effects en YouTube sobre los planes de diferentes .",
-        technologiesIcons: ['bi:wordpress', 'icon-park-outline:seo', 'cib:adobe-after-effects', 'akar-icons:css-fill', 'akar-icons:html-fill', 'teenyicons:javascript-solid']
-    }
-]
+    new Project(
+        "Contratar Seguro Online",
+        "https://adeslas.saludyseguromedico.es/",
+        contratarSeguroOnline,
+        "Contratar Seguro Online es una de las dos webs en la que estuve trabajando en mi tiempo como desarrollador de WordPress en Adeslas. Esta web trata sobre Seguros de Salud Adeslas. También cree videos publicitarios con After Effects en YouTube sobre los planes de salud de adeslas.",
+        ['bi:wordpress', 'icon-park-outline:seo', 'cib:adobe-after-effects', 'akar-icons:css-fill', 'akar-icons:html-fill', 'teenyicons:javascript-solid']
+    ),
+    new Project(
+        "LaurelBroker",
+        "https://laurelbroker.com/",
+        laurelBroker,
+        "LaurelBroker es una de las dos webs en la que estuve trabajando en mi tiempo como desarrollador de WordPress en Adeslas. Esta web es un comparador de seguros de salud entre diferentes compañias. También cree videos publicitarios con After Effects en YouTube sobre los planes de diferentes.",
+        ['bi:wordpress', 'icon-park-outline:seo', 'cib:adobe-after-effects', 'akar-icons:css-fill', 'akar-icons:html-fill', 'teenyicons:javascript-solid']
+    )
+];

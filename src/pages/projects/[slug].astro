@@ -7,7 +7,7 @@ import { Icon } from "astro-icon";
 import type { GetStaticPaths } from "astro";
 export const getStaticPaths = (() => {
     return projects.map((project) => ({
-        params: { slug: project.name.toLocaleLowerCase().replaceAll(" ", "-") },
+        params: { slug: project.slug },
         props: { project },
     }));
 }) satisfies GetStaticPaths;
@@ -17,7 +17,7 @@ const { name, image, description, technologiesIcons, link } = project;
 ---
 
 <MainLayout title={name} description={description} lang="es">
-    <main class="mt-8 flex flex-col gap-4">
+    <main class="mt-8 flex flex-col gap-4 mb-12">
         <Image
             src={image}
             alt={name}
