@@ -1,6 +1,9 @@
 import type { ImageMetadata } from "astro";
 import contratarSeguroOnline from '@/media/images/projects/contratar-seguro-online.png';
 import laurelBroker from '@/media/images/projects/laurelbroker.png';
+import slugify from "slugify";
+
+export type ProjectInstance = InstanceType<typeof Project>
 
 class Project {
     public name: string;
@@ -16,11 +19,11 @@ class Project {
         this.image = image;
         this.description = description;
         this.technologiesIcons = technologiesIcons;
-        this.slug = name.toLowerCase().replaceAll(" ", "-")
+        this.slug = slugify(name, {lower: true})
     }
 }
 
-export const projects: Project[] = [
+export const projects: ProjectInstance[] = [
     new Project(
         "Contratar Seguro Online",
         "https://adeslas.saludyseguromedico.es/",
