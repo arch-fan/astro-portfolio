@@ -1,10 +1,10 @@
 ---
-import { type Project } from "@/data/projects";
+import { type ProjectInstance } from "@/data/projects";
 import { Icon } from "astro-icon";
 import { Image } from "astro:assets";
-interface Props extends Project {}
+interface Props extends ProjectInstance {}
 
-const { name, link, image, description } = Astro.props;
+const { name, link, image, description, slug } = Astro.props;
 ---
 
 <div
@@ -31,7 +31,7 @@ const { name, link, image, description } = Astro.props;
             />
         </a>
         <a
-            href={`/projects/${name.toLowerCase().replaceAll(" ", "-")}`}
+            href={`/projects/${slug}`}
             aria-label={`Más información sobre ${name}`}
         >
             <Icon
