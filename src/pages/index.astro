@@ -27,7 +27,9 @@ import Contact from "@/components/Contact.astro";
   <Navbar />
   <div class="relative pb-8">
     <div class="min-h-screen">
-      <main class="lg:w-[840px] w-full px-4 lg:p-0 m-auto dark:text-[#a6adba] mb-12">
+      <main
+        class="lg:w-[840px] w-full px-4 lg:p-0 m-auto dark:text-[#a6adba] mb-12"
+      >
         <div
           class="h-screen flex lg:flex-row flex-col-reverse items-center justify-center gap-4"
           id="home"
@@ -82,10 +84,10 @@ import Contact from "@/components/Contact.astro";
         <HomeEntry title="Sobre mí" id="about-me">
           <div class="grid lg:grid-cols-2 mt-4 place-items-center">
             <div class="flex flex-col gap-4">
-              <p>
+              <p id="me">
                 Hola, mi nombre es <span
                   class="dark:text-blue-400 text-blue-700">Juan</span
-                >, tengo 18 años y soy un desarrollador Full Stack Junior.
+                >, tengo $years$ años y soy un desarrollador Full Stack Junior.
                 Actualmente me encuentro estudiando un Grado Superior de
                 Desarrollo de Aplicaciones Multiplataforma (<strong>DAM</strong
                 >) en el que estoy aprendiendo Java y creación de aplicaciones
@@ -148,3 +150,32 @@ import Contact from "@/components/Contact.astro";
     <Footer />
   </div>
 </Layout>
+
+<script>
+  const calculateAge = (birthdayString: string) => {
+    const birthday = new Date(birthdayString);
+    const today = new Date();
+    let age = today.getFullYear() - birthday.getFullYear();
+
+    if (
+      today.getMonth() < birthday.getMonth() ||
+      (today.getMonth() === birthday.getMonth() &&
+        today.getDate() < birthday.getDate())
+    ) {
+      age--;
+    }
+
+    return age;
+  };
+
+  const replaceAgeInText = (element: HTMLElement, age: string) => {
+    if (element) {
+      element.innerHTML = element.innerHTML.replace("$years$", age);
+    }
+  };
+
+  const $meText = document.querySelector("#me") as HTMLParagraphElement;
+  const age = calculateAge("2005-01-25");
+
+  replaceAgeInText($meText, age.toString());
+</script>
