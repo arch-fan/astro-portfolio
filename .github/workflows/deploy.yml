@@ -29,15 +29,6 @@ jobs:
         pnpm install
         pnpm run build
 
-    - name: Clean folder at server
-      uses: appleboy/ssh-action@master
-      with:
-        host: arch-fan.com
-        username: ubuntu
-        key: ${{ secrets.SSH_PRIVATE_KEY }}
-        script: |
-          rm -rf /www/portfolio/*
-
     - name: Move build to server
       uses: appleboy/scp-action@master
       with:
@@ -45,4 +36,14 @@ jobs:
         username: ubuntu
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         source: dist/
-        target: /www/portfolio/
+        target: ~/docker/nginx/www/
+        
+    - name: Clean folder at server
+      uses: appleboy/ssh-action@master
+      with:
+        host: arch-fan.com
+        username: ubuntu
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        script: |
+          rm -rf ~/docker/nginx/www/portfolio/*
+          mv ~/docker/nginx/www/dist ~/docker/nginx/www/portfolio
