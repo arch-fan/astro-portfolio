@@ -45,5 +45,5 @@ jobs:
         username: ubuntu
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
-          rm -rf ~/docker/nginx/www/portfolio/*
+          rm -rf ~/docker/nginx/www/portfolio/
           mv ~/docker/nginx/www/dist ~/docker/nginx/www/portfolio
