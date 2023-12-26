@@ -19,9 +19,9 @@ COPY package.json pnpm-lock.yaml ./
 RUN npm install -g pnpm && pnpm install --production
 
 COPY --from=build /app/dist ./dist
-COPY public/ ./
+COPY public/ ./public
 
-COPY .env .env.production ./
+COPY .env ./
 
 EXPOSE 4321
 
