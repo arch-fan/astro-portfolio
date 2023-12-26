@@ -1,15 +1,19 @@
 ---
 import MainLayout from "@/layouts/MainLayout.astro";
-import Contact from "@/components/Contact.astro";
+import Contact from "@/components/Contact.svelte";
 ---
 
 <MainLayout
-    title="Contacto"
-    description="Contacta conmigo con este formulario"
-    lang="es"
+  title="Contacto"
+  description="Contacta conmigo con este formulario"
+  lang="es"
 >
-<h1 class="text-center text-4xl mt-4 text-light-title dark:text-dark-title font-bold">Contacta conmigo</h1>
-    <main>
-        <Contact className="mt-4 flex flex-col lg:w-96 w-full" />
-    </main>
+  <h1
+    class="text-center text-4xl mt-4 text-light-title dark:text-dark-title font-bold"
+  >
+    Contacta conmigo
+  </h1>
+  <main>
+    <Contact client:load className="mt-4 flex flex-col lg:w-96 w-full" />
+  </main>
 </MainLayout>

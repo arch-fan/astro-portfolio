@@ -16,7 +16,7 @@ import { experience } from "@/data/experience";
 import { Icon } from "astro-icon";
 import CV from "@/media/pdf/CV.pdf";
 import icon from "@/media/images/icon.webp";
-import Contact from "@/components/Contact.astro";
+import Contact from "@/components/Contact.svelte";
 ---
 
 <Layout
@@ -64,7 +64,6 @@ import Contact from "@/components/Contact.astro";
                     class="h-6 dark:hover:text-white hover:text-gray-500"
                   />
                 </a>
-                <a href="/blog" class="underline font-bold">BLOG!</a>
               </div>
             </div>
           </div>
@@ -143,7 +142,7 @@ import Contact from "@/components/Contact.astro";
           </div>
         </HomeEntry>
         <HomeEntry title="Contáctame" centerTitle={true}>
-          <Contact className="mt-4 flex flex-col lg:w-96 w-full" />
+          <Contact client:idle className="mt-4 flex flex-col lg:w-96 w-full" />
         </HomeEntry>
       </main>
     </div>
