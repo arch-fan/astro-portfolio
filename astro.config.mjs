@@ -4,6 +4,7 @@ import sitemap from "@astrojs/sitemap";
 import node from '@astrojs/node';
 import mdx from "@astrojs/mdx";
 import svelte from "@astrojs/svelte";
+import path from 'path';
 
 // https://astro.build/config
 export default defineConfig({
@@ -15,5 +16,12 @@ export default defineConfig({
   }),
   server: {
     host: true
+  },
+  vite: {
+    resolve: {
+      alias: {
+        '@': path.resolve('./src')
+      }
+    }
   }
 });
