@@ -15,6 +15,6 @@ export default defineConfig({
     mode: 'standalone'
   }),
   server: {
-    host: true
+    host: true,
   }
 });

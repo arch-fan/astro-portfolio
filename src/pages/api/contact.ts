@@ -5,6 +5,8 @@ import type {
 import type { APIRoute } from "astro";
 import { sendMail } from "@/lib/mail";
 
+export const prerender = false;
+
 function createResponse({
   message,
   color,
