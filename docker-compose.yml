@@ -4,5 +4,9 @@ services:
   app:
     build: .
     container_name: portfolio
-    ports:
-      - "4321:4321"
+    networks:
+      - proxied
+
+networks:
+  proxied:
+    external: true
