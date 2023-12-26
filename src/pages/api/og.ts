@@ -3,6 +3,8 @@ import { html } from "satori-html";
 import { readFile } from "fs/promises";
 import satori from "satori";
 
+export const prerender = false;
+
 export const GET: APIRoute = async ({ request }: { request: Request }) => {
   const { searchParams } = new URL(request.url);
 
