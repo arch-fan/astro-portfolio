@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    container_name: portfolio
+    networks:
+      - proxied
+
+networks:
+  proxied:
+    external: true
