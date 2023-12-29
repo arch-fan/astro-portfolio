@@ -1,0 +1,29 @@
+name: Deploy to Server
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - "src/**"
+      - "public/**"
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@main
+
+      - name: Deploy on server
+        uses: appleboy/ssh-action@master
+        with:
+          host: arch-fan.com
+          username: ubuntu
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            cd /projects/astro-portfolio
+            git fetch && git pull
+            docker-compose up -d --build
