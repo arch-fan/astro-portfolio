@@ -2,6 +2,7 @@ import type { APIRoute } from "astro";
 import { html } from "satori-html";
 import { readFile } from "fs/promises";
 import satori from "satori";
+import sharp from "sharp";
 
 export const prerender = false;
 
@@ -12,15 +13,15 @@ export const GET: APIRoute = async ({ request }: { request: Request }) => {
     ? searchParams.get("title")?.slice(0, 100)
     : "Portfolio";
 
-  const icon64 = await readFile(`${process.cwd()}/public/icon.webp`).then(
-    (data) => `data:image/png;base64,${data.toString("base64")}`
-  );
+  const icon = await fetch("https://api.github.com/users/arch-fan")
+    .then((res) => res.json())
+    .then((data) => data.avatar_url);
 
   const markup = html(`
   <div
     style="height: 100%; width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; background-color: rgb(29 35 42); font-size: 72px; font-weight: 600; color: white"
   >
-    <img src="${icon64}" width="300px" height="300px" style="border-radius:360px">
+    <img src="${icon}" width="300px" height="300px" style="border-radius:360px">
     <div style="width: 100%; padding: 12px 24px 0 24px; display: flex; justify-content: center">
       <span>
         ${title}
@@ -44,10 +45,13 @@ export const GET: APIRoute = async ({ request }: { request: Request }) => {
     ],
   });
 
-  return new Response(svg, {
+  const png = sharp(Buffer.from(svg)).png();
+  const response = await png.toBuffer();
+
+  return new Response(response, {
     status: 200,
     headers: {
-      "Content-Type": "image/svg+xml",
+      "Content-Type": "image/png",
     },
   });
 };
