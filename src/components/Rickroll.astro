@@ -9,12 +9,13 @@
     <video class="w-screen h-screen bg-black" autoplay loop muted>
       <source src="/rickroll.webm" type="video/webm" />
     </video>
+    <script is:inline>
+      const $video = document.querySelector("video");
+      $video.addEventListener("play", () => {
+        setTimeout(() => {
+          $video.muted = false;
+        }, 100);
+      });
+    </script>
   </body>
 </html>
-
-<script>
-  const $video = document.querySelector("video") as HTMLVideoElement;
-  setTimeout(() => {
-    $video.muted = false;
-  }, 100);
-</script>
