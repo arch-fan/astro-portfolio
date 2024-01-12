@@ -1,6 +1,20 @@
----
-import rickroll from "@/media/rickroll.webm";
----
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Onlyfans</title>
+  </head>
+  <body>
+    <video class="w-screen h-screen bg-black" autoplay loop muted>
+      <source src="/rickroll.webm" type="video/webm" />
+    </video>
+  </body>
+</html>
 
-<video src="/rickroll.webm" class="w-screen h-screen bg-black" autoplay loop
-></video>
+<script>
+  const $video = document.querySelector("video") as HTMLVideoElement;
+  setTimeout(() => {
+    $video.muted = false;
+  }, 100);
+</script>
