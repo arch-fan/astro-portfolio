@@ -14,13 +14,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Clone repository
-        uses: actions/checkout@main
-
       - name: Deploy on server
         uses: appleboy/ssh-action@master
         with:
-          host: arch-fan.com
+          host: oci.arch-fan.com
           username: ubuntu
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
