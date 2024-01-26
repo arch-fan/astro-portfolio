@@ -1,5 +1,5 @@
 ---
-import { Icon } from "astro-icon";
+import { Icon } from "astro-icon/components";
 
 interface Props {
   title: string;
@@ -29,7 +29,7 @@ const { title, description, slug, icon, date, tags } = Astro.props;
       <time>
         {date.toLocaleDateString()}
       </time>
-       •
+      •
       <ul class="flex gap-2">
         {tags.map((tag) => <li>{tag}</li>)}
       </ul>

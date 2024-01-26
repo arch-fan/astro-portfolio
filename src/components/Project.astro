@@ -1,6 +1,6 @@
 ---
 import { type ProjectInstance } from "@/data/projects";
-import { Icon } from "astro-icon";
+import { Icon } from "astro-icon/components";
 import { Image } from "astro:assets";
 interface Props extends ProjectInstance {}
 
@@ -8,36 +8,27 @@ const { name, link, image, description, slug } = Astro.props;
 ---
 
 <div
-    class="flex flex-col dark:bg-inherit max-w-fit bg-white rounded border dark:border-gray-500 border-gray-300 shadow"
+  class="flex flex-col dark:bg-inherit max-w-fit bg-white rounded border dark:border-gray-500 border-gray-300 shadow"
 >
-    <a href={link} rel="dofollow" class="w-fit">
-        <Image
-            src={image}
-            alt={name}
-            class="rounded"
-            width={400}
-            height={225}
-        />
+  <a href={link} rel="dofollow" class="w-fit">
+    <Image src={image} alt={name} class="rounded" width={400} height={225} />
+  </a>
+  <h2 class="text-xm text-black font-bold m-2 dark:text-white line-clamp-1">
+    {name}
+  </h2>
+  <p class="mx-2 line-clamp-3">{description}</p>
+  <div class="flex p-2 gap-2 mt-auto">
+    <a href={link} rel="dofollow" aria-label={`Visitar ${name}`}>
+      <Icon
+        name="mdi:web"
+        class="h-6 w-6 dark:hover:text-yellow-50 hover:text-gray-600"
+      />
     </a>
-    <h2 class="text-xm text-black font-bold m-2 dark:text-white line-clamp-1">
-        {name}
-    </h2>
-    <p class="mx-2 line-clamp-3">{description}</p>
-    <div class="flex p-2 gap-2 mt-auto">
-        <a href={link} rel="dofollow" aria-label={`Visitar ${name}`}>
-            <Icon
-                name="mdi:web"
-                class="h-6 w-6 dark:hover:text-yellow-50 hover:text-gray-600"
-            />
-        </a>
-        <a
-            href={`/projects/${slug}`}
-            aria-label={`Más información sobre ${name}`}
-        >
-            <Icon
-                name="ph:info-bold"
-                class="h-6 w-6 dark:hover:text-yellow-50 hover:text-gray-600"
-            />
-        </a>
-    </div>
+    <a href={`/projects/${slug}`} aria-label={`Más información sobre ${name}`}>
+      <Icon
+        name="ph:info-bold"
+        class="h-6 w-6 dark:hover:text-yellow-50 hover:text-gray-600"
+      />
+    </a>
+  </div>
 </div>

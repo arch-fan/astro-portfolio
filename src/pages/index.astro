@@ -13,7 +13,7 @@ import { projects } from "@/data/projects";
 import Timeline from "@/components/Timeline/Timeline.astro";
 import TimelineItem from "@/components/Timeline/TimelineItem.astro";
 import { experience } from "@/data/experience";
-import { Icon } from "astro-icon";
+import { Icon } from "astro-icon/components";
 import CV from "@/media/pdf/CV.pdf";
 import icon from "@/media/images/icon.webp";
 import Contact from "@/components/Contact.svelte";
@@ -51,7 +51,7 @@ import Contact from "@/components/Contact.svelte";
                 >
                   <Icon
                     name="bi:linkedin"
-                    class="h-6 hover:text-[#0073b1]"
+                    class="h-5 w-5 hover:text-[#0073b1]"
                     aria-label="Visitar GitHub"
                   />
                 </a>
@@ -61,7 +61,7 @@ import Contact from "@/components/Contact.svelte";
                 >
                   <Icon
                     name="bi:github"
-                    class="h-6 dark:hover:text-white hover:text-gray-500"
+                    class="h-5 w-5 dark:hover:text-white hover:text-gray-500"
                   />
                 </a>
               </div>

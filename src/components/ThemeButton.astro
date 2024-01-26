@@ -1,37 +1,37 @@
 ---
-import { Icon } from "astro-icon";
+import { Icon } from "astro-icon/components";
 ---
 
-<button id="theme-changer" class="w-6 h-6" aria-label="Cambiar tema">
-  <Icon name="ph:sun" />
-  <Icon name="ph:moon" class="hidden" />
+<button id="theme-changer" class="w-6 h-6 flex" aria-label="Cambiar tema">
+  <Icon name="ph:sun" class="h-auto w-full" />
+  <Icon name="ph:moon" class="hidden h-auto w-full" />
 </button>
 
 <script is:inline>
-const $themeButton = document.querySelector("#theme-changer");
-const $sunSvg = document.querySelector('svg[astro-icon="ph:sun"]');
-const $moonSvg = document.querySelector('svg[astro-icon="ph:moon"]');
+  const $themeButton = document.querySelector("#theme-changer");
+  const $sunSvg = document.querySelector('svg[data-icon="ph:sun"]');
+  const $moonSvg = document.querySelector('svg[data-icon="ph:moon"]');
 
-function updateButton() {
+  function updateButton() {
     if (localStorage.theme === "light") {
-        $sunSvg.classList.remove("hidden");
-        $moonSvg.classList.add("hidden");
+      $sunSvg.classList.remove("hidden");
+      $moonSvg.classList.add("hidden");
     } else {
-        $sunSvg.classList.add("hidden");
-        $moonSvg.classList.remove("hidden");
+      $sunSvg.classList.add("hidden");
+      $moonSvg.classList.remove("hidden");
     }
-}
+  }
 
-$themeButton?.addEventListener("click", () => {
+  $themeButton?.addEventListener("click", () => {
     if (localStorage.theme === "light") {
-        document.documentElement.classList.add("dark");
-        localStorage.theme = "dark";
+      document.documentElement.classList.add("dark");
+      localStorage.theme = "dark";
     } else {
-        document.documentElement.classList.remove("dark");
-        localStorage.theme = "light";
+      document.documentElement.classList.remove("dark");
+      localStorage.theme = "light";
     }
     updateButton();
-});
+  });
 
-updateButton();
+  updateButton();
 </script>
