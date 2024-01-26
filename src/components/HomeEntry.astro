@@ -1,18 +1,20 @@
 ---
 interface Props {
-    title: string;
-    id?: string;
-    centerTitle?: boolean;
+  title: string;
+  id?: string;
+  centerTitle?: boolean;
 }
 
 const { title, id, centerTitle } = Astro.props;
 ---
 
-<article class="pb-16" {id} >
-    <h2
-        class={`text-4xl font-bold ${centerTitle ? 'w-full text-center' : 'w-fit'} dark:text-alt-text text-slate-900`}
-    >
-        {title}
-    </h2>
-    <slot />
-</article>
+<section class="pb-16" {id}>
+  <h2
+    class={`text-4xl font-bold ${
+      centerTitle ? "w-full text-center" : "w-fit"
+    } dark:text-alt-text text-slate-900`}
+  >
+    {title}
+  </h2>
+  <slot />
+</section>

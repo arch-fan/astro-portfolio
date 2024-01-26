@@ -7,7 +7,7 @@ interface Props extends ProjectInstance {}
 const { name, link, image, description, slug } = Astro.props;
 ---
 
-<div
+<article
   class="flex flex-col dark:bg-inherit max-w-fit bg-white rounded border dark:border-gray-500 border-gray-300 shadow"
 >
   <a href={link} rel="dofollow" class="w-fit">
@@ -31,4 +31,4 @@ const { name, link, image, description, slug } = Astro.props;
       />
     </a>
   </div>
-</div>
+</article>
