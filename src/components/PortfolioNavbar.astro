@@ -1,40 +1,40 @@
 ---
-import { Icon } from "astro-icon";
+import { Icon } from "astro-icon/components";
 import { navigationMenu } from "@/data/common.ts";
 import ThemeButton from "./ThemeButton.astro";
 ---
 
 <header
-    class="backdrop-blur fixed justify-center w-screen flex py-8 dark:text-[#a6adba] z-50"
+  class="backdrop-blur fixed justify-center w-screen flex py-8 dark:text-[#a6adba] z-50"
 >
-    <nav class="flex justify-between w-[840px] lg:px-0 px-2">
-        <h2>
-            <a href="/" aria-label="Pagina principal"
-                ><Icon
-                    name="JL"
-                    class="lg:h-12 lg:w-12 w-10 h-10 dark:fill-white lg:ml-0 ml-4 fill-black"
-                /></a
-            >
-        </h2>
-        <ul
-            class="flex gap-5 font-bold items-center hover:[&>li]:transition-all [&>li]:transition [&>li]:duration-300 hover:[&>li]:duration-300 dark:hover:[&>li]:text-alt-text hover:[&>li]:text-blue-400"
-        >
-            {
-                navigationMenu.map((item) => (
-                    <li>
-                        <a href={item.path}>{item.text}</a>
-                    </li>
-                ))
-            }
-            <li class="w-6 h-6">
-                <ThemeButton />
-            </li>
-        </ul>
-    </nav>
+  <nav class="flex justify-between w-[840px] lg:px-0 px-2">
+    <h2>
+      <a href="/" aria-label="Pagina principal"
+        ><Icon
+          name="JL"
+          class="lg:h-12 lg:w-12 w-10 h-10 dark:fill-white lg:ml-0 ml-4 fill-black"
+        /></a
+      >
+    </h2>
+    <ul
+      class="flex gap-5 font-bold items-center hover:[&>li]:transition-all [&>li]:transition [&>li]:duration-300 hover:[&>li]:duration-300 dark:hover:[&>li]:text-alt-text hover:[&>li]:text-blue-400"
+    >
+      {
+        navigationMenu.map((item) => (
+          <li>
+            <a href={item.path}>{item.text}</a>
+          </li>
+        ))
+      }
+      <li class="w-6 h-6">
+        <ThemeButton />
+      </li>
+    </ul>
+  </nav>
 </header>
 
 <style>
-	html {
-		scroll-padding-top: 104.5px
-	}
+  html {
+    scroll-padding-top: 104.5px;
+  }
 </style>
