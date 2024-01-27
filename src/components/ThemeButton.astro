@@ -3,8 +3,11 @@ import { Icon } from "astro-icon/components";
 ---
 
 <button id="theme-changer" class="w-6 h-6 flex" aria-label="Cambiar tema">
-  <Icon name="ph:sun" class="h-auto w-full" />
-  <Icon name="ph:moon" class="hidden h-auto w-full" />
+  <Icon name="ph:sun" class="h-auto w-full animate-[sun-spin_.2s_ease-out]" />
+  <Icon
+    name="ph:moon"
+    class="hidden h-auto w-full animate-[moon-spin_.2s_ease-in-out]"
+  />
 </button>
 
 <script is:inline>
@@ -35,3 +38,17 @@ import { Icon } from "astro-icon/components";
 
   updateButton();
 </script>
+
+<style>
+  @keyframes sun-spin {
+    to {
+      transform: rotate(80deg);
+    }
+  }
+
+  @keyframes moon-spin {
+    from {
+      transform: rotate(-120deg);
+    }
+  }
+</style>
