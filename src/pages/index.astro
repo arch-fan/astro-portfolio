@@ -125,8 +125,16 @@ import Contact from "@/components/Contact.svelte";
       </a>
     </div>
   </HomeEntry>
-  <HomeEntry title="Contáctame" centerTitle={true}>
-    <Contact client:idle className="mt-4 flex flex-col lg:w-96 w-full" />
+  <HomeEntry title="Contáctame">
+    <div class="grid grid-cols-1 lg:grid-cols-2 mt-4">
+      <p class="text-xl text-center self-center lg:w-80 text-balance">
+        Contacta conmigo a través de este formulario o mándame un correo a <strong
+          ><a href="mailto:juanserracines@gmail.com">juanserracines@gmail.com</a
+          ></strong
+        >
+      </p>
+      <Contact client:idle class="mt-4 w-full" />
+    </div>
   </HomeEntry>
 </Layout>
 
