@@ -97,6 +97,6 @@ export default {
       lg: "840px",
     },
   },
-  plugins: [require("@tailwindcss/typography")],
+  plugins: [],
   darkMode: "class",
 };
