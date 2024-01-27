@@ -26,31 +26,38 @@ import Contact from "@/components/Contact.svelte";
     class="h-screen flex lg:flex-row flex-col-reverse items-center justify-center gap-4"
     id="home"
   >
-    <div>
+    <div class="flex flex-col gap-1">
       <h1 class="lg:text-5xl text-3xl font-bold">Juan Luis Sánchez Pozo</h1>
-      <div class="flex gap-4 items-end">
+      <div class="flex gap-4 h-6 items-center">
         <span
-          class="text-xl after:content-[''] after:block after:bg-blue-500 after:h-[2px] after:animate-pulse w-fit after:rounded-xl"
+          class="text-xl -mt-1 relative after:content-[''] after:absolute after:-bottom-[2px] after:left-0 after:w-full after:bg-blue-500 after:h-[2px] after:animate-pulse after:rounded-xl"
         >
           Full Stack Developer
         </span>
-        <div class="flex gap-2">
-          <a
-            href="https://www.linkedin.com/in/juan-luis-sanchez-pozo"
-            aria-label="Visitar LinkedIn"
-          >
-            <Icon
-              name="bi:linkedin"
-              class="h-5 w-5 hover:text-[#0073b1]"
-              aria-label="Visitar GitHub"
-            />
-          </a>
-          <a href="https://github.com/arch-fan" aria-label="Visitar GitHub">
-            <Icon
-              name="bi:github"
-              class="h-5 w-5 dark:hover:text-white hover:text-gray-500"
-            />
-          </a>
+        <div class="flex h-full gap-2">
+          {
+            [
+              {
+                href: "https://www.linkedin.com/in/juan-luis-sanchez-pozo",
+                ariaLabel: "Visitar LinkedIn",
+                iconName: "bi:linkedin",
+                hoverStyle: "hover:text-[#0073b1]",
+              },
+              {
+                href: "https://github.com/arch-fan",
+                ariaLabel: "Visitar GitHub",
+                iconName: "bi:github",
+                hoverStyle: "dark:hover:text-white hover:text-gray-500",
+              },
+            ].map((link) => (
+              <a href={link.href} aria-label={link.ariaLabel} class="h-full">
+                <Icon
+                  name={link.iconName}
+                  class={`h-full w-auto ${link.hoverStyle}`}
+                />
+              </a>
+            ))
+          }
         </div>
       </div>
     </div>
