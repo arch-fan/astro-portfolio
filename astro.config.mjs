@@ -34,7 +34,7 @@ export default defineConfig({
     mode: "standalone",
   }),
   server: {
-    host: true,
+    host: "0.0.0.0",
   },
   vite: {
     resolve: {
