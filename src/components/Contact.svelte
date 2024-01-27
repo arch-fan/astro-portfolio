@@ -4,7 +4,7 @@
     ContactFormRequest,
   } from "@/types/contactForm";
 
-  let { className } = $props<{ className: string }>();
+  let { class: className } = $props<{ class: string }>();
 
   let isLoading = $state<boolean>(false);
 
@@ -50,7 +50,7 @@
 
 <form
   on:submit={handleSubmit}
-  class={`${className} gap-4 m-auto dark:text-white`}
+  class={`${className} flex flex-col gap-4 dark:text-white`}
   id="contact-form"
 >
   <label for="name" class="flex flex-col gap-1">
