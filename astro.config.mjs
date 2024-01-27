@@ -2,7 +2,6 @@ import { defineConfig } from "astro/config";
 import tailwind from "@astrojs/tailwind";
 import sitemap from "@astrojs/sitemap";
 import node from "@astrojs/node";
-import mdx from "@astrojs/mdx";
 import svelte from "@astrojs/svelte";
 import path from "path";
 import icon from "astro-icon";
@@ -12,7 +11,6 @@ export default defineConfig({
   integrations: [
     tailwind(),
     sitemap(),
-    mdx(),
     svelte(),
     icon({
       include: {
