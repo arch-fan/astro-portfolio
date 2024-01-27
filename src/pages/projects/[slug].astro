@@ -1,9 +1,8 @@
 ---
 import { projects, type ProjectInstance } from "@/data/projects";
-import MainLayout from "@/layouts/MainLayout.astro";
 import { Image } from "astro:assets";
 import { Icon } from "astro-icon/components";
-
+import Layout from "@/layouts/Layout.astro";
 import type { GetStaticPaths } from "astro";
 export const getStaticPaths = (() => {
   return projects.map((project) => ({
@@ -16,8 +15,8 @@ const { project } = Astro.props;
 const { name, image, description, technologiesIcons, link } = project;
 ---
 
-<MainLayout title={name} description={description} lang="es">
-  <main class="mt-8 flex flex-col gap-4 mb-12">
+<Layout title={name} description={description} lang="es">
+  <main class="pt-32 flex flex-col gap-4 mb-12 max-w-3xl m-auto">
     <Image
       src={image}
       alt={name}
@@ -42,10 +41,10 @@ const { name, image, description, technologiesIcons, link } = project;
       {
         technologiesIcons.map((techIcon) => (
           <li class="w-12 border-r border-b dark:border-dark-title border-black box-content py-6 px-4 rounded shadow hover:border-0 hover:shadow-none cursor-crosshair hover:translate-y-1">
-            <Icon name={techIcon} />
+            <Icon name={techIcon} class="w-full h-auto" />
           </li>
         ))
       }
     </ul>
   </main>
-</MainLayout>
+</Layout>

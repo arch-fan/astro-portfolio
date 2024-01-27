@@ -32,6 +32,9 @@ dependencies:
   '@iconify-json/icon-park-outline':
     specifier: ^1.1.15
     version: 1.1.15
+  '@iconify-json/maki':
+    specifier: ^1.1.23
+    version: 1.1.23
   '@iconify-json/mdi':
     specifier: ^1.1.64
     version: 1.1.64
@@ -41,6 +44,9 @@ dependencies:
   '@iconify-json/simple-icons':
     specifier: ^1.1.89
     version: 1.1.89
+  '@iconify-json/teenyicons':
+    specifier: ^1.1.9
+    version: 1.1.9
   astro:
     specifier: ^4.2.5
     version: 4.2.5(typescript@5.3.3)
@@ -696,6 +702,12 @@ packages:
       '@iconify/types': 2.0.0
     dev: false
 
+  /@iconify-json/maki@1.1.23:
+    resolution: {integrity: sha512-Mexm+Aor7S9hAsh0c2330b42rVu0Regp4MBb+EkEjrRE/CfrvqJRJpeOySRKN2fqB7XcHW8LaJg45TytvHfkQg==}
+    dependencies:
+      '@iconify/types': 2.0.0
+    dev: false
+
   /@iconify-json/mdi@1.1.64:
     resolution: {integrity: sha512-zGeo5TjhNFAY6FmSDBLAzDO811t77r6v/mDi7CAL9w5eXqKez6bIjk8R9AL/RHIeq44ALP4Ozr4lMqFTkHr7ug==}
     dependencies:
@@ -710,6 +722,12 @@ packages:
 
   /@iconify-json/simple-icons@1.1.89:
     resolution: {integrity: sha512-rsRgN5okCP6Xg4RD/5t8UlSQR7812AYMz3eas1JzOtBdLuaSDjI+FIarI+EUXzVblA6VAX2n9SwSuyXlHcjy+g==}
+    dependencies:
+      '@iconify/types': 2.0.0
+    dev: false
+
+  /@iconify-json/teenyicons@1.1.9:
+    resolution: {integrity: sha512-8QsYNkeaKkUQensRE2OyTpjBmUTcHerwwTdo82Lsxh0t1g0tZVfqjuoevF5KwDFCbfObK49gdfiuyzGcmuliVw==}
     dependencies:
       '@iconify/types': 2.0.0
     dev: false

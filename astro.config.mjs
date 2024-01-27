@@ -23,6 +23,8 @@ export default defineConfig({
         "akar-icons": ["*"],
         "icon-park-outline": ["*"],
         cib: ["*"],
+        teenyicons: ["*"],
+        maki: ["*"],
       },
     }),
   ],
