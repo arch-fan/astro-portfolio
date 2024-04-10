@@ -26,7 +26,7 @@ class Project {
 export const projects: ProjectInstance[] = [
     new Project(
         "Contratar Seguro Online",
-        "https://adeslas.saludyseguromedico.es/",
+        "https://saludyseguromedico.es/",
         contratarSeguroOnline,
         "Contratar Seguro Online es una de las dos webs en la que estuve trabajando en mi tiempo como desarrollador de WordPress en Adeslas. Esta web trata sobre Seguros de Salud Adeslas. También cree videos publicitarios con After Effects en YouTube sobre los planes de salud de adeslas.",
         ['bi:wordpress', 'icon-park-outline:seo', 'cib:adobe-after-effects', 'akar-icons:css-fill', 'akar-icons:html-fill', 'teenyicons:javascript-solid']
