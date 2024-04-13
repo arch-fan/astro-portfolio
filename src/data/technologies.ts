@@ -8,7 +8,7 @@ export const technologies: Technology[] = [
     {
         tech: "Python",
         icon: "akar-icons:python-fill",
-        percentage: 45
+        percentage: 50
     },
     {
         tech: "TailwindCSS",
@@ -43,16 +43,16 @@ export const technologies: Technology[] = [
     {
         tech: "Java",
         icon: "cib:java",
-        percentage: 20
+        percentage: 50
     },
     {
         tech: "React",
         icon: "mdi:react",
-        percentage: 40
+        percentage: 60
     },
     {
         tech: "SEO",
         icon: "icon-park-outline:seo",
-        percentage: 50
+        percentage: 60
     }
 ]
