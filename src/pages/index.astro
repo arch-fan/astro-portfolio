@@ -103,12 +103,8 @@ import Contact from "@/components/Contact.svelte";
     </div>
   </HomeEntry>
   <HomeEntry title="Tecnologías">
-    <div class="flex-col mt-4 gap-4 grid grid-cols-[24px_max-content_1fr]">
-      {
-        technologies
-          .sort((a, b) => b.percentage - a.percentage)
-          .map((tech) => <Technology {...tech} />)
-      }
+    <div class="mt-4 gap-2 grid grid-cols-8">
+      {technologies.map((tech) => <Technology {...tech} />)}
     </div>
   </HomeEntry>
   <HomeEntry title="Experiencia">
